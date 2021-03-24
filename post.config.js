@@ -1,7 +1,7 @@
 import ArticleData from './data/data.json'
 const content = ArticleData.content[0]
 
-const BASEURL = process.env.BASE_URL_PRODUCTION || '/static-nuxt-template'
+const BASEURL = process.env.BASE_URL_PRODUCTION || '/coming-out-quarantine'
 const CAN_URL =
   process.env.BASE_URL_PRODUCTION === null
     ? `https://youthradio.github.io${BASEURL}`
@@ -29,8 +29,8 @@ const POSTCONFIG = {
   twitterHandler: '@itsyrmedia',
   docs: [
     {
-      name: 'static new template',
-      id: '1imJ0esjaeeq_rxh5XFTs9VCpsREOuTshZU1GRCswxN0',
+      name: 'Coming Out Quarentine - backend',
+      id: '17Pi6frDqKrzIzHIrTkRnEuSPhH1xqn3eRP_FJSa7Pwc',
     },
   ],
   dataPath: '../data/data.json',

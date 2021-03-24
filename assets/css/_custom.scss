@@ -2,10 +2,18 @@
   font-family: 'Roboto Mono', sans-serif;
 }
 
+.daysans {
+  font-family: 'Days Sans', sans-serif;
+}
+
 body,
 html {
   font-size: 18px;
   position: relative;
+}
+
+.menu-top-margin {
+  margin-top: 68px;
 }
 .img-fluid {
   width: 100%;
@@ -82,6 +90,14 @@ html {
 .reset-p-m {
   p:first-of-type {
     margin-top: 0;
+  }
+}
+.reset-ps-m {
+  p:first-of-type {
+    margin-top: 0;
+  }
+  p:last-of-type {
+    margin-bottom: 0;
   }
 }
 .bounce-transition {
