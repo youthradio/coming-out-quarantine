@@ -1,7 +1,7 @@
 <template>
   <div class="menu-top-margin custom-cursor">
     <MenuHeader :fixed="true" />
-    <div class="menu-top-margin gradient-background pt2">
+    <div class="menu-top-margin gradient-background pt2 relative">
       <header class="mw7 tc center">
         <h1 class="daysans ttu f2 f1-ns lh-solid">
           {{ articleData.headline }}
@@ -10,21 +10,21 @@
         <h2 class="f5 normal">Written by {{ articleData.author }}</h2>
         <h2 class="f5 normal">03.30.21</h2>
       </header>
-      <div class="mw7 center">
+      <div class="mw7 center relative z-1">
         <img
           class="db w-100 lazy"
           loading="lazy"
           src="YR-YRM-210322-ComingOut-header.jpg"
         />
       </div>
-      <article
-        div
-        class="measure-wide center lh-copy ph3"
-        v-html="articleData.intro.text"
-      />
+
       <div class="white-fade"></div>
     </div>
-
+    <article
+      div
+      class="measure-wide center lh-copy ph3"
+      v-html="articleData.intro.text"
+    />
     <article
       v-for="interview in articleData.interviews"
       :key="interview.person"
@@ -47,7 +47,7 @@
           </div>
           <!--           here is the right col -->
           <details
-            class="ma0 mv3 ma3-ns gradient-wrap db custom-pointer"
+            class="gradient-wrap db custom-pointer"
             v-for="question in interview.questions"
             :key="question.question.text"
           >
@@ -135,6 +135,7 @@ $padding-h: 0.5rem;
   );
   padding: $border-width;
   margin: -1 * $border-width + $padding-h;
+  margin-top: 1rem;
 }
 
 .gradient-wrap-to-left {
@@ -146,6 +147,7 @@ $padding-h: 0.5rem;
   );
   padding: $border-width;
   margin: -1 * $border-width + $padding-h;
+  margin-top: 1rem;
 }
 
 h4.center {
@@ -173,6 +175,7 @@ summary::-webkit-details-marker {
     auto;
 }
 .white-fade {
+  z-index: 0;
   position: relative;
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -180,6 +183,7 @@ summary::-webkit-details-marker {
     rgba(255, 255, 255, 1) 0%,
     rgba(255, 255, 255, 0) 60%
   );
-  height: 100px;
+  height: 20px;
+  margin-top: -12px;
 }
 </style>
