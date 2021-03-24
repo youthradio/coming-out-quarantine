@@ -53,8 +53,29 @@
           >
             <summary
               class="ph-custom flex bg-white b custom-pointer reset-ps-m"
-              v-html="question.question.text"
-            ></summary>
+            >
+              <div v-html="question.question.text" />
+              <div class="fr">
+                <svg
+                  class="db"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    class="p-open"
+                    fill="#000"
+                    d="M10 20L1.3 5h17.4L10 20z"
+                  />
+                  <path
+                    class="p-open p-closed"
+                    fill="#000"
+                    d="M10 0l8.7 15H1.3L10 0z"
+                  />
+                </svg>
+              </div>
+            </summary>
             <div
               class="bg-white ph-custom reset-ps-m"
               v-html="question.response.text"
@@ -185,5 +206,22 @@ summary::-webkit-details-marker {
   );
   height: 20px;
   margin-top: -12px;
+}
+details[open] {
+  .p-open {
+    visibility: hidden;
+  }
+  .p-closed {
+    visibility: visible;
+  }
+}
+
+details {
+  .p-open {
+    visibility: visible;
+  }
+  .p-closed {
+    visibility: hidden;
+  }
 }
 </style>
