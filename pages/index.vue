@@ -134,7 +134,7 @@ $padding-h: 0.5rem;
     rgba(247, 168, 184, 1) 100%
   );
   padding: $border-width;
-  margin: calc(-1 * $border-width + $padding-h);
+  margin: -1 * $border-width + $padding-h;
 }
 
 .gradient-wrap-to-left {
@@ -145,7 +145,7 @@ $padding-h: 0.5rem;
     rgba(247, 168, 184, 1) 100%
   );
   padding: $border-width;
-  margin: calc(-1 * $border-width + $padding-h);
+  margin: -1 * $border-width + $padding-h;
 }
 
 h4.center {
