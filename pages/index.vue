@@ -55,7 +55,7 @@
               class="ph-custom flex bg-white b custom-pointer reset-ps-m"
             >
               <div v-html="question.question.text" />
-              <div class="fr">
+              <div class="ml-auto">
                 <svg
                   class="db"
                   width="20"
@@ -83,6 +83,9 @@
           </details>
         </div>
       </div>
+    </article>
+    <article class="mw7 lh-copy center mv4 ph3 measure-wide center lh-copy">
+      <div class="f7" v-html="articleData.credits.text" />
     </article>
 
     <ShareContainer
