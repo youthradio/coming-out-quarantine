@@ -35,7 +35,7 @@ jobs:
       - name: Rebuild for Production
         run: yarn publish-ghpages
         env:
-          BASE_URL_PRODUCTION: /coming-out-during-quarentine
+          BASE_URL_PRODUCTION: /coming-out-during-quarantine
 
       - name: Deploy Production
         uses: peaceiris/actions-gh-pages@v3
@@ -55,5 +55,5 @@ jobs:
           key: ${{ secrets.key }}
           port: ${{ secrets.PORT }}
           script: |
-            cd static/coming-out-during-quarentine
+            cd static/coming-out-during-quarantine
             git fetch && git reset --hard FETCH_HEAD && git clean -df
