@@ -16,7 +16,7 @@ const POSTCONFIG = {
   description: content.seo_description || '',
   tweetMessage: '@itsyrmedia',
   url: CAN_URL,
-  featureImage: `${CAN_URL}/social.jpg`,
+  featureImage: `${CAN_URL}/YR-YRM-210322-ComingOut-header.jpg`,
 
   featureImagePath: 'images/template-feature-image',
   featureImageDescription: 'People Protesting BLM',
