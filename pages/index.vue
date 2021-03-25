@@ -1,8 +1,9 @@
 <template>
   <div class="menu-top-margin custom-cursor">
     <MenuHeader :fixed="true" />
-    <div class="menu-top-margin gradient-background pt2 relative">
-      <header class="mw7 tc center">
+    <div class="menu-top-margin pt2 relative">
+      <div class="gradient-background"></div>
+      <header class="mw7 tc center z-1 ph3">
         <h1 class="daysans ttu f2 f1-ns lh-solid">
           {{ articleData.headline }}
         </h1>
@@ -17,12 +18,10 @@
           src="YR-YRM-210322-ComingOut-header.jpg"
         />
       </div>
-
-      <div class="white-fade"></div>
     </div>
     <article
       div
-      class="measure-wide center lh-copy ph3"
+      class="measure-wide center lh-copy ph4 pt3 pb5"
       v-html="articleData.intro.text"
     />
     <article
@@ -84,16 +83,31 @@
         </div>
       </div>
     </article>
-    <article class="mw7 lh-copy center mv4 ph3 measure-wide center lh-copy">
+    <article class="mw7 lh-copy center mv5 ph4 measure-wide center lh-copy">
       <div class="f7" v-html="articleData.credits.text" />
     </article>
-
+    <article
+      class="mw7 lh-copy center mv4 ph4 measure-wide center lh-copy dark-red roboto-mono"
+    >
+      <a
+        v-for="tag in articleData.tags"
+        :key="tag.name"
+        :href="tag.url"
+        target="_blank"
+        rel="nofollow"
+        class="link dark-red underline-none hover-light-red mh2 nl1 ttu"
+      >
+        <span>
+          {{ tag.name.trim() }}
+        </span>
+      </a>
+    </article>
     <ShareContainer
       :vertical-mode="false"
       :title="postData.title"
       :description="postData.description"
       tweet-message=""
-      class="mv3"
+      class="mt5 mb4"
     />
 
     <FooterContainer />
@@ -143,6 +157,11 @@ $padding-h: 0.5rem;
 }
 
 .gradient-background {
+  z-index: -1;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 90%;
   background: rgb(255, 255, 255);
   background: linear-gradient(
     315deg,
@@ -204,18 +223,6 @@ details > summary::-webkit-details-marker {
 .custom-pointer {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20' height='20.62' fill='none' viewBox='0 0 32 33'%3E%3Cdefs/%3E%3Cpath fill='%23fff' d='M9 25.2c-.6-.7-1.2-1.9-2.5-3.4-.6-.8-2.3-2.5-3-3.1-.3-.7-.4-1-.3-1.8.1-1 1.1-2 2.4-2.2.8 0 1.8.6 2.6 1l1.3 1.4.8.8c.4.5.6.8.4.1l-1-3.6-.8-2-.7-2.2c-.2-.5-.5-2-.8-2.6-.2-.9-.4-2.5.3-3.3.5-.6 1.5-.8 2.3-.5.9.4 1.5 1.6 1.8 2.1.4.9.9 2.1 1.2 3.5l1.3 5c0-.8-.4-2-.2-2.8 0-.5.4-1.2 1-1.5a5 5 0 011.7-.3c.5.1 1 .4 1.5.8.8 1 1 3.3 1 3 0-.6 0-2 .2-2.8.2-.4.9-.8 1.2-1a3 3 0 011.8-.2c.3 0 1 .5 1.3.8.4.5.7 2.3 1 3 0 .2.1-.8.4-1.3.6-1.1 3-1.7 3.5.7l.1 2 .2 2.1v3c-.2.6-.6 2-1 2.7 0 0-1.8 2.3-2 3.4v1.8l.4 1.6s-1.4.3-2.1.1c-.8 0-1.8-1.2-2-1.8-.4-.5-1-.4-1.2.2-.3.7-1.1 2-1.8 2-1.3.4-3.8.4-5.5.6 0 0 .2-1.8-.6-2.5L11 26.2l-2.1-1z'/%3E%3Cpath stroke='url(%23paint0_linear)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M9 25.2c-.6-.7-1.2-1.9-2.5-3.4-.6-.8-2.3-2.5-3-3.1-.3-.7-.4-1-.3-1.8.1-1 1.1-2 2.4-2.2.8 0 1.8.6 2.6 1l1.3 1.4.8.8c.4.5.6.8.4.1l-1-3.6-.8-2-.7-2.2c-.2-.5-.5-2-.8-2.6-.2-.9-.4-2.5.3-3.3.5-.6 1.5-.8 2.3-.5.9.4 1.5 1.6 1.8 2.1.4.9.9 2.1 1.2 3.5l1.3 5c0-.8-.4-2-.2-2.8 0-.5.4-1.2 1-1.5a5 5 0 011.7-.3c.5.1 1 .4 1.5.8.8 1 1 3.3 1 3 0-.6 0-2 .2-2.8.2-.4.9-.8 1.2-1a3 3 0 011.8-.2c.3 0 1 .5 1.3.8.4.5.7 2.3 1 3 0 .2.1-.8.4-1.3.6-1.1 3-1.7 3.5.7l.1 2 .2 2.1v3c-.2.6-.6 2-1 2.7 0 0-1.8 2.3-2 3.4v1.8l.4 1.6s-1.4.3-2.1.1c-.8 0-1.8-1.2-2-1.8-.4-.5-1-.4-1.2.2-.3.7-1.1 2-1.8 2-1.3.4-3.8.4-5.5.6 0 0 .2-1.8-.6-2.5L11 26.2l-2.1-1z'/%3E%3Cpath stroke='url(%23paint1_linear)' stroke-linecap='round' stroke-width='1.5' d='M22.9 24.4l-.6-6'/%3E%3Cpath stroke='url(%23paint2_linear)' stroke-linecap='round' stroke-width='1.5' d='M19.3 24.7l-.7-6'/%3E%3Cpath stroke='url(%23paint3_linear)' stroke-linecap='round' stroke-width='1.5' d='M15.2 19l.6 6'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='14.9' x2='17.3' y1='3.1' y2='30.2' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2355CDFC'/%3E%3Cstop offset='1' stop-color='%23F7A8B8'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear' x1='22.8' x2='23.4' y1='18.3' y2='24.3' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2355CDFC'/%3E%3Cstop offset='1' stop-color='%23F7A8B8'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint2_linear' x1='18.7' x2='19.2' y1='18.7' y2='24.7' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2355CDFC'/%3E%3Cstop offset='1' stop-color='%23F7A8B8'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint3_linear' x1='15.7' x2='16.3' y1='18.9' y2='25' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2355CDFC'/%3E%3Cstop offset='1' stop-color='%23F7A8B8'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E"),
     auto;
-}
-.white-fade {
-  z-index: 0;
-  position: relative;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0) 60%
-  );
-  height: 20px;
-  margin-top: -12px;
 }
 details[open] {
   .p-open {
