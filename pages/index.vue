@@ -51,29 +51,29 @@
             v-for="question in interview.questions"
             :key="question.question.text"
           >
-            <summary
-              class="ph-custom flex bg-white b custom-pointer reset-ps-m"
-            >
-              <div v-html="question.question.text" />
-              <div class="ml-auto">
-                <svg
-                  class="db"
-                  width="20"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    class="p-open"
-                    fill="#000"
-                    d="M10 20L1.3 5h17.4L10 20z"
-                  />
-                  <path
-                    class="p-open p-closed"
-                    fill="#000"
-                    d="M10 0l8.7 15H1.3L10 0z"
-                  />
-                </svg>
+            <summary class="ph-custom bg-white b custom-pointer reset-ps-m">
+              <div class="flex">
+                <div v-html="question.question.text" />
+                <div class="ml-auto">
+                  <svg
+                    class="db"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      class="p-open"
+                      fill="#000"
+                      d="M10 20L1.3 5h17.4L10 20z"
+                    />
+                    <path
+                      class="p-open p-closed"
+                      fill="#000"
+                      d="M10 0l8.7 15H1.3L10 0z"
+                    />
+                  </svg>
+                </div>
               </div>
             </summary>
             <div
@@ -177,12 +177,16 @@ $padding-h: 0.5rem;
 h4.center {
   text-align: center;
 }
-
+details summary::-webkit-details-marker {
+  display: none;
+}
 summary {
   outline: none;
 }
-summary::marker,
-summary::-webkit-details-marker {
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
   display: none;
 }
 
