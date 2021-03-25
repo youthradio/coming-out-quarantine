@@ -47,9 +47,9 @@
           </div>
           <!--           here is the right col -->
           <details
-            class="gradient-wrap db custom-pointer"
             v-for="question in interview.questions"
             :key="question.question.text"
+            class="gradient-wrap db custom-pointer"
           >
             <summary class="ph-custom bg-white b custom-pointer reset-ps-m">
               <div class="flex">
@@ -135,6 +135,9 @@ export default {
 $border-width: 0.3rem;
 $padding-h: 0.5rem;
 
+/deep/ ::selection {
+  background: #f7a8b8;
+}
 .ph-custom {
   padding: $padding-h + $border-width;
 }
