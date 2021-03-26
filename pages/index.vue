@@ -9,19 +9,22 @@
         </h1>
         <h2 class="f5 normal lh-title" v-html="articleData.description"></h2>
         <h2 class="f5 normal">Written by {{ articleData.author }}</h2>
-        <h2 class="f5 normal">03.30.21</h2>
+        <h2 class="f5 normal">{{ articleData.date }}</h2>
       </header>
       <div class="mw7 center relative z-1">
         <img
           class="db w-100 lazy"
           loading="lazy"
-          src="YR-YRM-210322-ComingOut-header.jpg"
+          :src="articleData.featureImage"
         />
+        <div class="f7 gray">
+          <small class="f7 gray"> {{ articleData.featureImageCaption }} </small>
+        </div>
       </div>
     </div>
     <article
       div
-      class="measure-wide center lh-copy ph4 pt3 pb5"
+      class="measure-wide center lh-copy ph4 pt-1-25"
       v-html="articleData.intro.text"
     />
     <article
