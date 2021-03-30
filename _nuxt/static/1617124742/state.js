@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fcoming-out-during-quarantine\u002F_nuxt\u002Fstatic\u002F1617124742",layout:"default",error:a,serverRendered:true,routePath:"\u002F",config:{app:{basePath:"\u002Fcoming-out-during-quarantine\u002F",assetsPath:"\u002Fcoming-out-during-quarantine\u002F_nuxt\u002F",cdnURL:a}}}}(null));
